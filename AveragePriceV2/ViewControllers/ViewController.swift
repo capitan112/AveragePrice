@@ -94,7 +94,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             questionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            questionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10),
+            questionLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 

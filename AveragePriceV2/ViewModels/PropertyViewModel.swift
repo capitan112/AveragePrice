@@ -68,7 +68,6 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
         self.style = style
     }
 
-    @MainActor
     func fetchProperties() async {
         isLoading = true
         errorMessage = nil
