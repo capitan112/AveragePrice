@@ -1,20 +1,49 @@
-# AveragePrice
+#Property Price Calculator App
 
-## Assumption and implementations
+## Assumptions and Implementations
 
-## Swift 5, UIKit, iOS 17.0, Combine in the app.
+### Technologies Used
+- Swift 5
+- UIKit
+- iOS 17.0
+- Combine
 
-### In requirement was "Calculate the average property price from the results" but I especially have added an option for an average price depending on the size of the home with chosen bedrooms in UIPickerView. I think it is more informative.
+## Key Features and Enhancements
+### Average Property Price Calculation:
 
-- Implementation architecture MVVM-C - split logic, model and UI
-- Async/await in REST request
-- Using Combine and reactive approach
-- Smooth appears Data through UIView alpha animation after downloading
-- Checking average for all possible options and for specific homes with specific bedrooms with UIPickerView
-- Lazy instance init when it needs in ViewContoller
-- Unit test for a fetch request
-- Message depends on the Error type
-- Formatting average price answer
-- Handling error messages in the app
-- No storyboards only code and programmatic constraints
-- Dependency injection and using OOP,  Protocol Type for models and for HttpClients - gives flexibility for app
+- Calculates the average property price from the results.
+- Includes an option to calculate the average price based on the size of homes with chosen bedrooms using a UIPickerView for more detailed insights.
+
+### Architecture:
+- Implements MVVM-C (Model-View-ViewModel-Coordinator) to effectively separate logic, model, and UI components.
+
+### Async/Await:
+- Utilizes async/await for handling REST requests, enhancing code readability and performance.
+
+### Reactive Approach with Combine:
+- Employs Combine for managing asynchronous data streams in a reactive programming style.
+
+### UI Enhancements:
+- Smooth data appearance through UIView alpha animation after downloading.
+
+### Average Price Calculation Options:
+- Provides options for calculating the average price for all properties and specific homes with selected bedrooms using UIPickerView.
+
+### Lazy Initialization:
+- Implements lazy instance initialization in ViewController to optimize resource usage.
+
+### Unit Testing:
+- Includes unit tests for fetch requests to ensure reliability and accuracy.
+
+### Error Handling:
+- Displays messages based on the type of error encountered.
+- Handles error messages within the app for better user experience.
+
+### Formatting:
+- Formats the average price answer for better readability and presentation.
+
+### Code-Only Implementation:
+- Avoids using storyboards, utilizing programmatic constraints for UI layout instead.
+
+### Dependency Injection and OOP:
+- Applies dependency injection and uses Protocol Types for models and HTTP clients to enhance flexibility and maintainability.
