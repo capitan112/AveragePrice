@@ -1,10 +1,10 @@
 # AveragePrice
 
-# Assumption and implementations
+## Assumption and implementations
 
 ## Swift 5, UIKit, iOS 17.0, Combine in the app.
 
-## In requirement was "Calculate the average property price from the results" but I especially have added an option for an average price depending on the size of the home with chosen bedrooms in UIPickerView. I think it is more informative.
+### In requirement was "Calculate the average property price from the results" but I especially have added an option for an average price depending on the size of the home with chosen bedrooms in UIPickerView. I think it is more informative.
 
 - Implementation architecture MVVM-C - split logic, model and UI
 - Async/await in REST request
@@ -14,6 +14,7 @@
 - Lazy instance init when it needs in ViewContoller
 - Unit test for a fetch request
 - Message depends on the Error type
+- Formatting average price answer
 - Handling error messages in the app
 - No storyboards only code and programmatic constraints
 - Dependency injection and using OOP,  Protocol Type for models and for HttpClients - gives flexibility for app

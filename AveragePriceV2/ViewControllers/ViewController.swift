@@ -83,7 +83,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         pickerView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             pickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pickerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            pickerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
         ])
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -103,7 +103,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         answerLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             answerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            answerLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 10),
+            answerLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 10)
         ])
     }
 
@@ -112,7 +112,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
 
@@ -123,7 +123,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             errorLabel.topAnchor.constraint(equalTo: answerLabel.bottomAnchor, constant: 10),
             errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
         ])
     }
 
