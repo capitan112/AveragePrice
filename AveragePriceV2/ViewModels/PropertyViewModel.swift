@@ -29,7 +29,8 @@ protocol PropertyViewModelProtocol: AnyObject {
 class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
     struct Style {
         let pickerViewAll: String = "All"
-        let bedrooms: String = "Bedrooms"
+        let bedroomSingular: String = "bedroom"
+        let bedroomPlural: String = "bedrooms"
         let question: String = "What is the average property price?"
 
         // Errors

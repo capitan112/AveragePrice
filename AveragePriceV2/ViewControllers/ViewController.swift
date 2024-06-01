@@ -201,7 +201,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if row == 0 {
             return viewModel.style.pickerViewAll
         } else {
-            return "\(viewModel.uniqueBedrooms[row - 1]) \(viewModel.style.bedrooms)"
+            let bedrooms = viewModel.uniqueBedrooms[row - 1]
+            let bedroomString = bedrooms == 1 ? viewModel.style.bedroomSingular : viewModel.style.bedroomPlural
+            return "\(bedrooms) \(bedroomString)"
         }
     }
 

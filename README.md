@@ -9,6 +9,7 @@
 - Implementation architecture MVVM-C - split logic, model and UI
 - Async/await in REST request
 - Using Combine and reactive approach
+- Smooth appears Data through UIView alpha animation after downloading
 - Checking average for all possible options and for specific homes with specific bedrooms with UIPickerView
 - Lazy instance init when it needs in ViewContoller
 - Unit test for a fetch request
