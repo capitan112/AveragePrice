@@ -27,8 +27,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let label = UILabel()
         label.text = viewModel.style.question
         label.textAlignment = .center
-        label.textColor = UIColor(red: 38 / 255, green: 38 / 255, blue: 55 / 255, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = viewModel.style.labelTextColor
+        label.font = viewModel.style.labelFont
         label.alpha = 0
         return label
     }()
@@ -36,8 +36,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     private lazy var answerLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = UIColor(red: 38 / 255, green: 38 / 255, blue: 55 / 255, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = viewModel.style.labelTextColor
+        label.font = viewModel.style.labelFont
         label.alpha = 0
         return label
     }()
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let label = UILabel()
         label.textAlignment = .center
         label.textColor = .red
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = viewModel.style.labelFont
         label.numberOfLines = 0
         label.alpha = 0
         return label

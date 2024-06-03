@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import UIKit
 
 protocol PropertyViewModelProtocol: AnyObject {
     var averagePrice: String? { get set }
@@ -32,6 +33,8 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
         let bedroomSingular: String = "bedroom"
         let bedroomPlural: String = "bedrooms"
         let question: String = "What is the average property price?"
+        let labelTextColor: UIColor = UIColor(red: 38 / 255, green: 38 / 255, blue: 55 / 255, alpha: 1)
+        let labelFont: UIFont = UIFont.systemFont(ofSize: 14)
 
         // Errors
         let invalidURL: String = "Invalid URL."
