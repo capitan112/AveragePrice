@@ -57,7 +57,7 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
     var isLoadingPublisher: Published<Bool>.Publisher { $isLoading }
     var errorMessagePublisher: Published<String?>.Publisher { $errorMessage }
 
-    private let url: String = "https://raw.githubusercontent.com/rightmove/Code-Challenge-iOS/master/properties.json"
+    private let url: String = "https://raw.githubusercontent.com/capitan112/AveragePrice/main/properties.json"
     private let httpClient: HTTPClientProtocol
     private let numberFormatter: NumberFormatter
     var properties: [Property] = []
