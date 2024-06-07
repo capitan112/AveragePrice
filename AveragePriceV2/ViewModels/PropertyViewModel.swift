@@ -60,7 +60,7 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
     private let url: String = "https://raw.githubusercontent.com/rightmove/Code-Challenge-iOS/master/properties.json"
     private let httpClient: HTTPClientProtocol
     private let numberFormatter: NumberFormatter
-    private var properties: [Property] = []
+    var properties: [Property] = []
     let style: Style
 
     init(httpClient: HTTPClientProtocol = HTTPClient(),
