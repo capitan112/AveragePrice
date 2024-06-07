@@ -31,7 +31,7 @@ class HTTPClient: HTTPClientProtocol {
             throw NetworkError.responseError(-1)
         }
 
-        guard httpResponse.statusCode == 200 else {
+        guard httpResponse.isSuccessful else {
             throw NetworkError.responseError(httpResponse.statusCode)
         }
 
@@ -42,3 +42,10 @@ class HTTPClient: HTTPClientProtocol {
         }
     }
 }
+
+extension HTTPURLResponse {
+    var isSuccessful: Bool {
+        return (200...299).contains(statusCode)
+    }
+}
+
