@@ -30,8 +30,6 @@ class PropertyViewModelTests: XCTestCase {
         await viewModel.fetchProperties()
 
         XCTAssertEqual(viewModel.properties.count, 3)
-        XCTAssertEqual(viewModel.uniqueBedrooms, [1, 2, 3])
-        XCTAssertEqual(viewModel.averagePrice, "£150,000.00")
         XCTAssertNil(viewModel.errorMessage)
     }
 
@@ -42,8 +40,6 @@ class PropertyViewModelTests: XCTestCase {
         await viewModel.fetchProperties()
 
         XCTAssertEqual(viewModel.properties.count, 0)
-        XCTAssertEqual(viewModel.uniqueBedrooms, [])
-        XCTAssertNil(viewModel.averagePrice)
         XCTAssertEqual(viewModel.errorMessage, viewModel.style.invalidURL)
     }
 
@@ -54,8 +50,6 @@ class PropertyViewModelTests: XCTestCase {
         await viewModel.fetchProperties()
 
         XCTAssertEqual(viewModel.properties.count, 0)
-        XCTAssertEqual(viewModel.uniqueBedrooms, [])
-        XCTAssertNil(viewModel.averagePrice)
         XCTAssertEqual(viewModel.errorMessage, viewModel.style.noData)
     }
 
@@ -66,8 +60,6 @@ class PropertyViewModelTests: XCTestCase {
         await viewModel.fetchProperties()
 
         XCTAssertEqual(viewModel.properties.count, 0)
-        XCTAssertEqual(viewModel.uniqueBedrooms, [])
-        XCTAssertNil(viewModel.averagePrice)
         XCTAssertEqual(viewModel.errorMessage, "\(viewModel.style.invalidResponse) + 404.")
     }
 
@@ -78,9 +70,22 @@ class PropertyViewModelTests: XCTestCase {
         await viewModel.fetchProperties()
 
         XCTAssertEqual(viewModel.properties.count, 0)
-        XCTAssertEqual(viewModel.uniqueBedrooms, [])
-        XCTAssertNil(viewModel.averagePrice)
         XCTAssertEqual(viewModel.errorMessage, "\(viewModel.style.failedDecodeJson) + The operation couldn’t be completed. ( error 0.)")
+    }
+    
+    func testCalculateUniqueBedroomsAndAveragePrice() {
+        let properties = [
+            Property(price: 100_000, bedrooms: 1),
+            Property(price: 150_000, bedrooms: 2),
+            Property(price: 200_000, bedrooms: 3),
+        ]
+        
+        viewModel.properties = properties
+        viewModel.calculateAveragePrice()
+        viewModel.updateUniqueBedrooms()
+
+        XCTAssertEqual(viewModel.uniqueBedrooms, [1, 2, 3])
+        XCTAssertEqual(viewModel.averagePrice, "£150,000.00")
     }
 }
 

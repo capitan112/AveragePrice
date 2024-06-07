@@ -122,7 +122,7 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
         averagePrice = numberFormatter.poundsFormattedPrice(price: average)
     }
 
-    private func updateUniqueBedrooms() {
+    func updateUniqueBedrooms() {
         let bedroomsSet = Set(properties.map { $0.bedrooms })
         uniqueBedrooms = Array(bedroomsSet).sorted()
     }
