@@ -25,6 +25,7 @@ protocol PropertyViewModelProtocol: AnyObject {
 
     func fetchProperties() async
     func calculateAveragePrice()
+    func bedroomFormating(row: Int) -> String
 }
 
 class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
@@ -94,6 +95,13 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
         }
 
         isLoading = false
+    }
+    
+    func bedroomFormating(row: Int) -> String {
+        let bedrooms = uniqueBedrooms[row - 1]
+        let bedroomString = bedrooms == 1 ? style.bedroomSingular : style.bedroomPlural
+        
+        return "\(bedrooms) \(bedroomString)"
     }
 
     func calculateAveragePrice() {
