@@ -1,0 +1,103 @@
+{
+  "properties" : [
+    { 
+      "id": 10,
+      "price": 500000,
+      "bedrooms": 6,
+      "bathrooms": 3,
+      "number": "5",
+      "address": "Pine Street",
+      "region": "Bristol",
+      "postcode": "BS1 5TY",
+      "propertyType": "DETACHED"
+    },
+    { 
+      "id": 11,
+      "price": 120000,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "number": "18",
+      "address": "Maple Avenue",
+      "region": "Liverpool",
+      "postcode": "L1 8DL",
+      "propertyType": "TERRACED"
+    },
+    { 
+      "id": 12,
+      "price": 250000,
+      "bedrooms": 4,
+      "bathrooms": 1,
+      "number": "8",
+      "address": "Oak Street",
+      "region": "Edinburgh",
+      "postcode": "EH3 5LT",
+      "propertyType": "DETACHED"
+    },
+    { 
+      "id": 13,
+      "price": 180000,
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "number": "20A",
+      "address": "Rose Lane",
+      "region": "Cambridge",
+      "postcode": "CB2 1TS",
+      "propertyType": "FLAT"
+    },
+    { 
+      "id": 14,
+      "price": 240000,
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "number": "37",
+      "address": "Hill House",
+      "region": "Oxford",
+      "postcode": "OX1 3PS",
+      "propertyType": "DETACHED"
+    },
+    { 
+      "id": 15,
+      "price": 800000,
+      "bedrooms": 8,
+      "bathrooms": 4,
+      "number": "",
+      "address": "Lake View",
+      "region": "Kent",
+      "postcode": "TN3 6QZ",
+      "propertyType": "SEMI_DETACHED"
+    },
+    { 
+      "id": 16,
+      "price": 160000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "number": "50",
+      "address": "Cedar Road",
+      "region": "York",
+      "postcode": "YO1 9XY",
+      "propertyType": "SEMI_DETACHED"
+    },
+    { 
+      "id": 17,
+      "price": 600000,
+      "bedrooms": 5,
+      "bathrooms": 2,
+      "number": "10",
+      "address": "Elm Street",
+      "region": "Leeds",
+      "postcode": "LS1 4BR",
+      "propertyType": "TERRACED"
+    },
+    { 
+      "id": 18,
+      "price": 750000,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "number": "2",
+      "address": "Willow Way",
+      "region": "Brighton",
+      "postcode": "BN1 3TE",
+      "propertyType": "DETACHED"
+    }
+  ]
+}
