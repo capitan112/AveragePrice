@@ -128,7 +128,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     private func bindViewModel() {
-        viewModel.averagePricePublisher
+        viewModel.averagePrice
             .receive(on: DispatchQueue.main)
             .sink { [weak self] averagePrice in
                 self?.errorLabel.text = nil
@@ -152,7 +152,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
             .store(in: &cancellables)
 
-        viewModel.isLoadingPublisher
+        viewModel.isLoading
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLoading in
                 if isLoading {

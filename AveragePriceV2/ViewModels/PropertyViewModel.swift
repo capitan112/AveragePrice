@@ -10,16 +10,15 @@ import Foundation
 import UIKit
 
 protocol PropertyViewModelProtocol: AnyObject {
-    var averagePrice: String? { get set }
     var selectedBedrooms: Int? { get set }
     var uniqueBedrooms: [Int] { get }
-    var isLoading: Bool { get }
     var errorMessage: String? { get }
-
-    var averagePricePublisher: Published<String?>.Publisher { get }
+    
+    var averagePrice: PassthroughSubject<String?, Never> { get  set }
+    var isLoading: PassthroughSubject<Bool, Never> { get  set }
     var selectedBedroomsPublisher: Published<Int?>.Publisher { get }
     var uniqueBedroomsPublisher: Published<[Int]>.Publisher { get }
-    var isLoadingPublisher: Published<Bool>.Publisher { get }
+    
     var errorMessagePublisher: Published<String?>.Publisher { get }
     var style: PropertyViewModel.Style { get }
 
@@ -45,16 +44,15 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
         let unexpectedError: String = "Unexpected error:  "
     }
 
-    @Published var averagePrice: String?
     @Published var selectedBedrooms: Int?
     @Published var uniqueBedrooms: [Int] = []
-    @Published var isLoading: Bool = false
     @Published var errorMessage: String?
-
-    var averagePricePublisher: Published<String?>.Publisher { $averagePrice }
+    
+    var averagePrice = PassthroughSubject<String?, Never>()
+    var isLoading = PassthroughSubject<Bool, Never>()
+    
     var selectedBedroomsPublisher: Published<Int?>.Publisher { $selectedBedrooms }
     var uniqueBedroomsPublisher: Published<[Int]>.Publisher { $uniqueBedrooms }
-    var isLoadingPublisher: Published<Bool>.Publisher { $isLoading }
     var errorMessagePublisher: Published<String?>.Publisher { $errorMessage }
 
     private let url: String = "https://raw.githubusercontent.com/capitan112/AveragePrice/main/properties.json"
@@ -73,7 +71,7 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
     }
 
     func fetchProperties() async {
-        isLoading = true
+        isLoading.send(true)
         errorMessage = nil
         do {
             properties = try await httpClient.fetchProperties(url: url)
@@ -94,7 +92,7 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
             errorMessage = "\(style.unexpectedError) + \(error.localizedDescription)"
         }
 
-        isLoading = false
+        isLoading.send(false)
     }
     
     func bedroomFormating(row: Int) -> String {
@@ -113,13 +111,14 @@ class PropertyViewModel: PropertyViewModelProtocol, ObservableObject {
         }
 
         guard !filteredProperties.isEmpty else {
-            averagePrice = nil
+            averagePrice.send("")
             return
         }
+        
 
         let totalPrices = filteredProperties.reduce(0) { $0 + $1.price }
         let average = Double(totalPrices) / Double(filteredProperties.count)
-        averagePrice = numberFormatter.poundsFormattedPrice(price: average)
+        averagePrice.send(numberFormatter.poundsFormattedPrice(price: average))
     }
 
     func updateUniqueBedrooms() {
