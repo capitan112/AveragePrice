@@ -11,6 +11,7 @@ import XCTest
 class PropertyViewModelTests: XCTestCase {
     var viewModel: PropertyViewModel!
     var mockHTTPClient: MockHTTPClient!
+    var cancellables = Set<AnyCancellable>()
 
     override func setUp() {
         super.setUp()
@@ -80,12 +81,26 @@ class PropertyViewModelTests: XCTestCase {
             Property(price: 200_000, bedrooms: 3),
         ]
         
+        var receivedAveragePrice: String?
+        let expectation = XCTestExpectation(description: "Average price calculated")
+        
         viewModel.properties = properties
+        viewModel.calculateAveragePrice()
+        viewModel.updateUniqueBedrooms()
+        viewModel.averagePrice
+            .sink { value in
+                receivedAveragePrice = value
+                expectation.fulfill()
+            }
+            .store(in: &cancellables)
+        
         viewModel.calculateAveragePrice()
         viewModel.updateUniqueBedrooms()
 
         XCTAssertEqual(viewModel.uniqueBedrooms, [1, 2, 3])
-        XCTAssertEqual(viewModel.averagePrice, "£150,000.00")
+
+        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(receivedAveragePrice, "£150,000.00", "Average price should be £150,000.00")
     }
 }
 
